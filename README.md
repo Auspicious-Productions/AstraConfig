@@ -50,56 +50,66 @@ AstraConfig bundles Cascade, Snowbird, Kommand, KBus and Orbit. It needs `fabric
 A module is one card in the menu. Fields are the source of truth: read them anywhere, and AstraConfig
 writes them when the player changes something.
 
+A zoom mod, for example:
+
 ```java
-public final class FishingModule extends Module {
-    public static final FishingModule INSTANCE = new FishingModule();
+public final class ZoomModule extends Module {
+    public static final ZoomModule INSTANCE = new ZoomModule();
 
     @MasterToggle
-    public static boolean enabled = false;
+    public static boolean enabled = true;
 
-    @Keybind(title = "Toggle Fishing Macro", section = "Fishing Macro")
-    public static AstraKeybind toggleKey = AstraKeybind.of(InputConstants.KEY_R).onPress(() -> INSTANCE.toggle());
+    @Keybind(title = "Zoom Key", section = "Zoom")
+    public static AstraKeybind zoomKey = AstraKeybind.of(InputConstants.KEY_C)
+            .onPress(Zoom::start)
+            .onRelease(Zoom::stop);
 
-    @Dropdown(title = "Fishing Type", section = "Fishing Macro")
-    public static FishingType type = FishingType.NORMAL;
+    @Dropdown(title = "Key Behaviour", section = "Zoom")
+    public static ZoomMode mode = ZoomMode.HOLD;              // your own enum: HOLD, TOGGLE
 
-    @Switch(title = "Sneak While Fishing", section = "Fishing Macro")
-    public static boolean sneak = false;
+    @Slider(title = "Zoom Level", section = "Zoom", min = 1.5f, max = 50, step = 0.5f, logarithmic = true)
+    public static float level = 4f;
 
-    @Slider(title = "Use Axe Below HP", section = "Fishing Macro", min = 0, max = 1_000_000, step = 1_000)
-    @DependsOn("sneak")
-    public static int axeHp = 100_000;
+    @Switch(title = "Scroll to Adjust", section = "Zoom")
+    public static boolean scrollAdjust = true;
 
-    @RangeSlider(title = "Reel Delay", section = "Fishing Macro", min = 0, max = 1000, step = 10,
-                 minSpread = 20, formatter = ValueFormatter.Millis.class)
-    public static IntRange reelDelay = IntRange.of(120, 250);   // reelDelay.random() picks a delay
+    @RangeSlider(title = "Scroll Limits", section = "Zoom", min = 1, max = 50, step = 0.5f, minSpread = 1)
+    @DependsOn("scrollAdjust")                                 // greyed out while the switch is off
+    public static FloatRange scrollLimits = FloatRange.of(2f, 20f);
 
-    @Color(title = "Highlight Colour", section = "Visuals")
-    public static int highlight = 0xFF3B82F6;
+    @Switch(title = "Smooth Zoom", section = "Feel")
+    public static boolean smooth = true;
 
-    @Section("Pond Scanning")                  // a nested class becomes its own section
-    public static final class Pond {
-        @Slider(title = "Pond Edge Threshold", min = 0, max = 10)
-        @PreviousNames("edgeThreshold")        // renamed field: the old saved value is kept
-        public static int edge = 2;
+    @Slider(title = "Zoom Duration", section = "Feel", min = 0, max = 500, step = 10,
+            formatter = ValueFormatter.Millis.class)
+    public static int duration = 150;
+
+    @Color(title = "Vignette Colour", section = "Visuals")
+    public static int vignette = 0x80000000;
+
+    @Section("Mouse")                              // a nested class becomes its own section
+    public static final class Mouse {
+        @Slider(title = "Sensitivity While Zoomed", min = 10, max = 100, step = 5)
+        @PreviousNames("zoomSensitivity")          // renamed field: the old saved value is kept
+        public static int sensitivity = 50;
     }
 
-    @Button(title = "Reset Statistics", text = "Reset", section = "Statistics")
-    private void resetStats() { /* ... */ }
+    @Button(title = "Reset Zoom Level", text = "Reset", section = "Zoom")
+    private void resetLevel() { set("level", 4f); }
 
-    private FishingModule() {
-        super("fishing", "Fishing");
-        description("A feature-rich fishing macro.");
-        accent(0xFF3B82F6);                     // card and page colour
-        hideIf("axeHp", () -> type != FishingType.NORMAL);
-        onChange("sneak", (Boolean v) -> System.out.println("sneak = " + v));
+    private ZoomModule() {
+        super("zoom", "Zoom");
+        description("Zoom in with a key, like a spyglass you don't have to carry.");
+        accent(0xFF3B82F6);                         // card and page colour
+        hideIf("duration", () -> !smooth);          // only shown while Smooth Zoom is on
+        onChange("level", (Float v) -> Zoom.setTarget(v));
     }
 
-    @EventHandler                               // Orbit; only called while enabled
-    private void onTick(TickEvent e) { /* ... */ }
+    @EventHandler                                   // Orbit; only called while enabled
+    private void onTick(TickEvent e) { Zoom.tick(); }
 
     @Override public void onEnable()  { }
-    @Override public void onDisable() { }
+    @Override public void onDisable() { Zoom.stop(); }
 }
 ```
 
@@ -111,29 +121,31 @@ Rules: option fields must be non-`final` (except `@Hud`), and either `static` or
 The same annotations work on `object` properties:
 
 ```kotlin
-object MiningModule : Module("mining", "Mining") {
+object FullbrightModule : Module("fullbright", "Fullbright") {
     @MasterToggle var enabled = false
-    @Dropdown(title = "Target", section = "Mining Macro") var target = MiningTarget.GEMSTONE
-    @Slider(title = "Rotation Speed", min = 1f, max = 20f, step = 0.5f) var rotationSpeed = 8.5f
+    @Dropdown(title = "Method", section = "Brightness") var method = BrightMethod.GAMMA   // GAMMA, NIGHT_VISION
+    @Slider(title = "Brightness", section = "Brightness", min = 1f, max = 15f, step = 0.5f) var gamma = 10f
 
-    init { hideIf(::rotationSpeed) { target == MiningTarget.GLACITE } }
+    init { hideIf(::gamma) { method == BrightMethod.NIGHT_VISION } }   // night vision has no strength
 }
 ```
 
-Or extend `KtModule` and use delegates:
+Or extend `KtModule` and use delegates. A waypoints mod:
 
 ```kotlin
-object DianaModule : KtModule("diana", "Diana") {
-    var enabled by masterToggle()
-    var autoWarp by switch("Auto Warp", true, section = "Burrows")
-        .onChange { println("autoWarp = $it") }
-    var walkSpeed by slider("Walk Speed", 1.0, 0.5..2.0, step = 0.05).hideIf { !autoWarp }
-    var clickDelay by rangeSlider("Click Delay", 80..140, bounds = 0..500, minSpread = 10)
-    val toggleKey by keybind("Toggle Diana", InputConstants.KEY_G) { onPress { toggle() } }
-    var mobs by multiSelect("Highlight Mobs", setOf(DianaMob.MINOS_INQUISITOR))
-    var waypoints by itemList("Waypoints", listOf("12 70 -40"), placeholder = "x y z")
-    val burrows by hud(StatCard("diana_burrows", "Burrows"))
-    val reset by button("Reset Session", text = "Reset") { /* ... */ }
+object WaypointsModule : KtModule("waypoints", "Waypoints") {
+    var enabled by masterToggle(true)
+    var showBeams by switch("Show Beams", true, section = "Display")
+        .onChange { WaypointRenderer.refresh() }
+    var labelScale by slider("Label Scale", 1.0, 0.5..2.0, step = 0.05, section = "Display").hideIf { !showBeams }
+    var fadeDistance by rangeSlider("Fade Distance", 32..256, bounds = 0..1024, minSpread = 16, section = "Display")
+    var maxDistance by slider("Max Distance", 1000.0, 10.0..100_000.0, logarithmic = true, section = "Display")
+    var dimensions by multiSelect("Show In", setOf(Dim.OVERWORLD, Dim.NETHER))   // your own enum
+    var waypoints by itemList("Waypoints", listOf("Home 120 64 -40"), placeholder = "name x y z")
+    var spawn by position("Spawn Point", BlockPos.ZERO)                          // X/Y/Z + "Here"
+    val addKey by keybind("Add Waypoint Here", InputConstants.KEY_B) { onPress { addHere() } }
+    val nearest by hud(TextHud("nearest_waypoint", "Nearest Waypoint", { nearestText() }, "Nearest"))
+    val clear by button("Clear All", text = "Clear") { waypoints = emptyList() }
 }
 ```
 
@@ -151,9 +163,9 @@ Astra.builder("mymod")
      .openKey(InputConstants.KEY_RSHIFT)      // optional; the player can rebind it
      .logo("mymod:icons/logo.svg")            // optional; PNG or SVG, shown in the sidebar
      .lookup(MethodHandles.lookup())          // required: lets AstraConfig reach your private fields
-     .category("Skills", FishingModule.INSTANCE)
-     .category("Mining", MiningModule.INSTANCE)
-     .page("Routes", "Saved routes", () -> new RoutesPage())   // optional custom page
+     .category("Camera", ZoomModule.INSTANCE)
+     .category("World", FullbrightModule.INSTANCE)
+     .page("Changelog", "What's new", () -> new ChangelogPage())   // optional custom page
      .build();
 ```
 
@@ -163,7 +175,7 @@ Astra.create("mymod") {
     command = "mymod"
     openKey = InputConstants.KEY_RSHIFT
     lookup = MethodHandles.lookup()
-    category("Skills", FishingModule)
+    category("World", WaypointsModule)
 }
 ```
 
@@ -191,7 +203,7 @@ numbers differ. AstraConfig saves keys by name, so configs move between versions
 | `@Hud` | a `HudElement` (may be `final`) | Live thumbnail, Style popup, HUD editor, show/hide |
 
 Every annotation also takes `title`, `description`, `section`, `icon` (a PNG or SVG resource id,
-e.g. `"mymod:icons/fish.svg"`) and `keywords` (extra
+e.g. `"mymod:icons/zoom.svg"`) and `keywords` (extra
 search terms).
 
 ## Behaviour
@@ -262,13 +274,13 @@ public static final SpeedHud speed = new SpeedHud();
 The HUD kit has ready-made pieces that already follow the style:
 
 ```java
-@Hud(section = "Visuals")
-public static final StatCard stats = new StatCard("fishing_stats", "Fishing")
-        .subtitle(() -> "Session running")
-        .headline(() -> String.valueOf(catches), "catches")
-        .progress(() -> catches / 100.0)                     // the ring
-        .row("Per hour", () -> perHour)
-        .row("Sneak", () -> sneak ? "on" : "off", () -> sneak ? 0xFF47DE9C : 0xFFFF6B7D);
+@Hud(section = "Overlay")
+public static final StatCard world = new StatCard("world_info", "World")
+        .subtitle(() -> biomeName())
+        .headline(() -> String.valueOf(day()), "day")
+        .progress(() -> timeOfDay())                         // the ring, 0..1
+        .row("Time", () -> clockTime())
+        .row("Weather", () -> raining() ? "Rain" : "Clear", () -> raining() ? 0xFF60A5FA : 0xFFFBBF24);
 ```
 
 Also `TextHud` (one labelled line), and `ProgressArc` / `KeyValueGrid` for your own elements.
@@ -288,15 +300,15 @@ plus an offset, so they stay put across window sizes and GUI scales.
 
 ## Custom pages
 
-`.page("Routes", "subtitle", factory)` adds a sidebar entry. The factory returns any AstraConfig element;
-build it from the same widgets the menu uses:
+`.page("Changelog", "subtitle", factory)` adds a sidebar entry. The factory returns any AstraConfig
+element; build it from the same widgets the menu uses:
 
 ```kotlin
-page("Routes", "Saved routes") {
+page("Changelog", "What's new") {
     ScrollPane().apply {
         content.padding = 20f
-        content.adopt(Label("No routes yet.", muted = true))
-        content.adopt(Button("Record route", Button.Style.PRIMARY) { startRecording() })
+        content.adopt(Label("1.2: smoother zoom, new vignette colour.", muted = true))
+        content.adopt(Button("Open website", Button.Style.PRIMARY) { openWebsite() })
     }
 }
 ```
