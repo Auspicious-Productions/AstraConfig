@@ -124,6 +124,7 @@ publishing {
 tasks {
     jar {
         from(processor.output)
+        from(rootProject.file("LICENSE"), rootProject.file("LICENSE-TEMPLATE"))
     }
 
     // The test mods as a normal mod jar, e.g. to try AstraConfig outside the dev setup: build/libs/astraconfig-testmod-*.jar

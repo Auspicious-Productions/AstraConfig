@@ -385,7 +385,7 @@ JDK 25 is required.
 | `./gradlew updateKotlinAbi` | Rewrites the public-API snapshots (`versions/<mc>/api/*.api`) after an intended API change. `build` runs `checkKotlinAbi`, which fails on unintended ones |
 | `./gradlew publishToMavenLocal` | Publishes `xyz.essencexc:astraconfig:0.1.0+<mc>` to `~/.m2` |
 
-Built from the Template by Starred (BSD-3-Clause, see `LICENSE`).
+The build setup is based on the Template by Starred, used under the BSD 3-Clause License (see [`LICENSE-TEMPLATE`](LICENSE-TEMPLATE)).
 
 ## License
 
