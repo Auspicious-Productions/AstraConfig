@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F2433"/>
+      <stop offset="1" stop-color="#0C0E14"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#C9D0FF"/>
+      <stop offset="0.55" stop-color="#8090FF"/>
+      <stop offset="1" stop-color="#5B6BEA"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8090FF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#8090FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="210" fill="url(#glow)"/>
+  <!-- orbit -->
+  <ellipse cx="256" cy="256" rx="196" ry="74" fill="none" stroke="#8090FF" stroke-opacity="0.35"
+           stroke-width="10" transform="rotate(-24 256 256)"/>
+  <!-- main four-point star -->
+  <path d="M256 70 C272 196 316 240 442 256 C316 272 272 316 256 442 C240 316 196 272 70 256 C196 240 240 196 256 70 Z"
+        fill="url(#star)"/>
+  <!-- orbiting dot, like a slider knob on the track -->
+  <circle cx="433" cy="178" r="22" fill="#E8EAF2"/>
+  <circle cx="433" cy="178" r="11" fill="#8090FF"/>
+  <!-- small sparkle -->
+  <path d="M128 92 C132 118 138 124 164 128 C138 132 132 138 128 164 C124 138 118 132 92 128 C118 124 124 118 128 92 Z"
+        fill="#C9D0FF" fill-opacity="0.9"/>
+</svg>

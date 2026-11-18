@@ -27,5 +27,6 @@
     "fabric-language-kotlin": "*",
     "minecraft": "${minecraft}"
   },
-  "accessWidener": "${tweaker}"
+  "accessWidener": "${tweaker}",
+  "icon": "assets/astraconfig/icon.png"
 }
