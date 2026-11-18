@@ -1,0 +1,6 @@
+[versions]
+id = "astraconfig"
+name = "AstraConfig"
+version = "0.1.0"
+group = "xyz.essencexc"
+tweaker = "astraconfig.accesswidener"

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "astraconfig_testmod",
+  "version": "0.0.0",
+  "name": "AstraConfig Test Mods",
+  "description": "Example Java and Kotlin mods built with AstraConfig: /astrajava, /astrakt and /astragallery.",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "xyz.essencexc.astratest.java.JavaTestMod",
+      {
+        "value": "xyz.essencexc.astratest.kotlin.KotlinTestMod",
+        "adapter": "kotlin"
+      }
+    ]
+  },
+  "depends": {
+    "astraconfig": "*",
+    "fabric-language-kotlin": "*"
+  }
+}

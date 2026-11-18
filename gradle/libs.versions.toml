@@ -1,0 +1,38 @@
+[versions]
+loom = "1.17-SNAPSHOT"
+kotlin = "2.4.10"
+
+devauth = "1.2.2"
+
+fabric-loader = "0.19.3"
+fabric-language-kotlin = "1.13.13+kotlin.2.4.10"
+
+kbus = "2026.09.3"
+kommand = "2026.09.2"
+orbit = "0.2.4"
+junit = "5.13.4"
+snowbird = "2026.09.4"
+cascade = "2026.10.1"
+parallax = "2026.10.1"
+updater = "2026.09.2"
+
+[libraries]
+jsvg = { module = "com.github.weisj:jsvg", version = "2.0.0" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-language-kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric-language-kotlin" }
+
+devauth = { module = "me.djtheredstoner:DevAuth-fabric", version.ref = "devauth" }
+
+kbus = { module = "foo.starred:kbus", version.ref = "kbus" }
+kommand = { module = "foo.starred:kommand", version.ref = "kommand" }
+orbit = { module = "meteordevelopment:orbit", version.ref = "orbit" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+cascade = { module = "foo.starred:cascade", version.ref = "cascade" }
+parallax = { module = "foo.starred:parallax", version.ref = "parallax" }
+snowbird = { module = "foo.starred:snowbird", version.ref = "snowbird" }
+updater = { module = "foo.starred:updater", version.ref = "updater" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+loom = { id = "net.fabricmc.fabric-loom", version.ref = "loom" }
+dokka = { id = "org.jetbrains.dokka", version = "2.1.0" }

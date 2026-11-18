@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "A config menu library for Fabric mods. Declare modules and settings, AstraConfig provides the menu.",
+  "authors": [
+    "EssenceXC"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      {
+        "value": "xyz.essencexc.astra.core.AstraInit",
+        "adapter": "kotlin"
+      }
+    ]
+  },
+  "mixins": [
+    "${id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19",
+    "fabric-api": "*",
+    "fabric-language-kotlin": "*",
+    "minecraft": "${minecraft}"
+  },
+  "accessWidener": "${tweaker}"
+}

@@ -1,0 +1,1487 @@
+public final class xyz/essencexc/astra/api/Astra {
+	public static final field EVENTS Lmeteordevelopment/orbit/IEventBus;
+	public static final field ID Ljava/lang/String;
+	public static final field INSTANCE Lxyz/essencexc/astra/api/Astra;
+	public static final field LOGGER Lorg/slf4j/Logger;
+	public static final fun builder (Ljava/lang/String;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final synthetic fun create (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lxyz/essencexc/astra/api/AstraMod;
+	public static final fun mod (Ljava/lang/String;)Lxyz/essencexc/astra/api/AstraMod;
+	public static final fun mods ()Ljava/util/List;
+}
+
+public final class xyz/essencexc/astra/api/AstraBuilder {
+	public final fun build ()Lxyz/essencexc/astra/api/AstraMod;
+	public final fun category (Ljava/lang/String;[Lxyz/essencexc/astra/api/Module;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun command (Ljava/lang/String;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun getCommand ()Ljava/lang/String;
+	public final fun getLogo ()Ljava/lang/String;
+	public final fun getLookup ()Ljava/lang/invoke/MethodHandles$Lookup;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOpenKey ()I
+	public final fun getSchemaVersion ()I
+	public final fun logo (Ljava/lang/String;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun lookup (Ljava/lang/invoke/MethodHandles$Lookup;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun migrate (Lxyz/essencexc/astra/api/function/Migration;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun name (Ljava/lang/String;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun openKey (I)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun page (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/PageFactory;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun page (Ljava/lang/String;Lxyz/essencexc/astra/api/PageFactory;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public static synthetic fun page$default (Lxyz/essencexc/astra/api/AstraBuilder;Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/PageFactory;ILjava/lang/Object;)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun schemaVersion (I)Lxyz/essencexc/astra/api/AstraBuilder;
+	public final fun setCommand (Ljava/lang/String;)V
+	public final fun setLogo (Ljava/lang/String;)V
+	public final fun setLookup (Ljava/lang/invoke/MethodHandles$Lookup;)V
+	public final fun setName (Ljava/lang/String;)V
+	public final fun setOpenKey (I)V
+	public final fun setSchemaVersion (I)V
+}
+
+public final class xyz/essencexc/astra/api/AstraMod {
+	public final fun categories ()Ljava/util/List;
+	public final fun command ()Ljava/lang/String;
+	public final fun id ()Ljava/lang/String;
+	public final fun logo ()Ljava/lang/String;
+	public final fun module (Ljava/lang/String;)Lxyz/essencexc/astra/api/Module;
+	public final fun modules ()Ljava/util/List;
+	public final fun name ()Ljava/lang/String;
+	public final fun openKey ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun pages ()Ljava/util/List;
+	public final fun save ()V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/Category {
+	public final fun modules ()Ljava/util/List;
+	public final fun name ()Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/CustomPage {
+	public final fun name ()Ljava/lang/String;
+	public final fun subtitle ()Ljava/lang/String;
+}
+
+public abstract class xyz/essencexc/astra/api/Module {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun accent (I)Lxyz/essencexc/astra/api/Module;
+	public final fun description (Ljava/lang/String;)Lxyz/essencexc/astra/api/Module;
+	public final fun disable ()V
+	public final fun enable ()V
+	public final fun get (Ljava/lang/String;)Ljava/lang/Object;
+	public final fun getAccent ()I
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getIcon ()Ljava/lang/String;
+	public final fun getMod ()Lxyz/essencexc/astra/api/AstraMod;
+	public final fun hideIf (Ljava/lang/String;Lxyz/essencexc/astra/api/function/Condition;)Lxyz/essencexc/astra/api/Module;
+	public final synthetic fun hideIf (Lkotlin/reflect/KProperty;Lxyz/essencexc/astra/api/function/Condition;)Lxyz/essencexc/astra/api/Module;
+	public final fun icon (Ljava/lang/String;)Lxyz/essencexc/astra/api/Module;
+	public final fun id ()Ljava/lang/String;
+	public final fun isEnabled ()Z
+	public final fun name ()Ljava/lang/String;
+	public final fun onChange (Ljava/lang/String;Lxyz/essencexc/astra/api/function/OptionListener;)Lxyz/essencexc/astra/api/Module;
+	public final synthetic fun onChange (Lkotlin/reflect/KProperty;Lxyz/essencexc/astra/api/function/OptionListener;)Lxyz/essencexc/astra/api/Module;
+	public fun onDisable ()V
+	public fun onEnable ()V
+	public final fun reset (Ljava/lang/String;)V
+	public final fun set (Ljava/lang/String;Ljava/lang/Object;)V
+	public final fun setAccent (I)V
+	public final fun setDescription (Ljava/lang/String;)V
+	public final fun setIcon (Ljava/lang/String;)V
+	public fun toString ()Ljava/lang/String;
+	public final fun toggle ()V
+}
+
+public abstract interface class xyz/essencexc/astra/api/PageFactory {
+	public abstract fun create ()Lxyz/essencexc/astra/ui/core/AstraElement;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Button : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun text ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Checkbox : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Color : java/lang/annotation/Annotation {
+	public abstract fun alpha ()Z
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/DependsOn : java/lang/annotation/Annotation {
+	public abstract fun value ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Dropdown : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun options ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Hud : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Info : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+	public abstract fun type ()Lxyz/essencexc/astra/api/annotations/InfoType;
+}
+
+public final class xyz/essencexc/astra/api/annotations/InfoType : java/lang/Enum {
+	public static final field ERROR Lxyz/essencexc/astra/api/annotations/InfoType;
+	public static final field INFO Lxyz/essencexc/astra/api/annotations/InfoType;
+	public static final field SUCCESS Lxyz/essencexc/astra/api/annotations/InfoType;
+	public static final field WARNING Lxyz/essencexc/astra/api/annotations/InfoType;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/api/annotations/InfoType;
+	public static fun values ()[Lxyz/essencexc/astra/api/annotations/InfoType;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/ItemList : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun maxItems ()I
+	public abstract fun maxLength ()I
+	public abstract fun placeholder ()Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Keybind : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/MasterToggle : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/MultiSelect : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun options ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Number : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun max ()F
+	public abstract fun min ()F
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+	public abstract fun unit ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Position : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/PreviousNames : java/lang/annotation/Annotation {
+	public abstract fun value ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/RangeSlider : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun formatter ()Ljava/lang/Class;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun max ()F
+	public abstract fun min ()F
+	public abstract fun minSpread ()F
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun step ()F
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Section : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Slider : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun formatter ()Ljava/lang/Class;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun logarithmic ()Z
+	public abstract fun max ()F
+	public abstract fun min ()F
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun step ()F
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Switch : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract interface annotation class xyz/essencexc/astra/api/annotations/Text : java/lang/annotation/Annotation {
+	public abstract fun description ()Ljava/lang/String;
+	public abstract fun icon ()Ljava/lang/String;
+	public abstract fun keywords ()[Ljava/lang/String;
+	public abstract fun maxLength ()I
+	public abstract fun multiline ()Z
+	public abstract fun placeholder ()Ljava/lang/String;
+	public abstract fun section ()Ljava/lang/String;
+	public abstract fun title ()Ljava/lang/String;
+}
+
+public abstract class xyz/essencexc/astra/api/event/CancellableEvent : meteordevelopment/orbit/ICancellable {
+	public fun <init> ()V
+	public fun isCancelled ()Z
+	public fun setCancelled (Z)V
+}
+
+public final class xyz/essencexc/astra/api/event/ConfigLoadEvent {
+	public fun <init> (Lxyz/essencexc/astra/api/AstraMod;)V
+	public final fun mod ()Lxyz/essencexc/astra/api/AstraMod;
+}
+
+public final class xyz/essencexc/astra/api/event/ConfigSaveEvent {
+	public fun <init> (Lxyz/essencexc/astra/api/AstraMod;)V
+	public final fun mod ()Lxyz/essencexc/astra/api/AstraMod;
+}
+
+public final class xyz/essencexc/astra/api/event/KeybindEvent {
+	public fun <init> (Lxyz/essencexc/astra/api/keybind/AstraKeybind;Z)V
+	public final fun keybind ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun pressed ()Z
+}
+
+public final class xyz/essencexc/astra/api/event/ModuleToggleEvent : xyz/essencexc/astra/api/event/CancellableEvent {
+	public fun <init> (Lxyz/essencexc/astra/api/Module;Z)V
+	public final fun enabled ()Z
+	public final fun module ()Lxyz/essencexc/astra/api/Module;
+}
+
+public final class xyz/essencexc/astra/api/event/OptionChangedEvent {
+	public fun <init> (Lxyz/essencexc/astra/api/Module;Ljava/lang/String;Ljava/lang/Object;)V
+	public final fun module ()Lxyz/essencexc/astra/api/Module;
+	public final fun option ()Ljava/lang/String;
+	public final fun value ()Ljava/lang/Object;
+}
+
+public final class xyz/essencexc/astra/api/event/TickEvent {
+	public static final field INSTANCE Lxyz/essencexc/astra/api/event/TickEvent;
+}
+
+public abstract interface class xyz/essencexc/astra/api/function/Condition {
+	public abstract fun test ()Z
+}
+
+public abstract interface class xyz/essencexc/astra/api/function/KeyAction {
+	public abstract fun run ()V
+}
+
+public abstract interface class xyz/essencexc/astra/api/function/Migration {
+	public abstract fun migrate (ILcom/google/gson/JsonObject;)V
+}
+
+public abstract interface class xyz/essencexc/astra/api/function/OptionListener {
+	public abstract fun onChange (Ljava/lang/Object;)V
+}
+
+public abstract interface class xyz/essencexc/astra/api/function/ValueFormatter {
+	public static final field Companion Lxyz/essencexc/astra/api/function/ValueFormatter$Companion;
+	public abstract fun format (D)Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/function/ValueFormatter$Companion {
+}
+
+public final class xyz/essencexc/astra/api/function/ValueFormatter$Default : xyz/essencexc/astra/api/function/ValueFormatter {
+	public fun <init> ()V
+	public fun format (D)Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/function/ValueFormatter$Millis : xyz/essencexc/astra/api/function/ValueFormatter {
+	public fun <init> ()V
+	public fun format (D)Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/function/ValueFormatter$Percent : xyz/essencexc/astra/api/function/ValueFormatter {
+	public fun <init> ()V
+	public fun format (D)Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/function/ValueFormatter$Seconds : xyz/essencexc/astra/api/function/ValueFormatter {
+	public fun <init> ()V
+	public fun format (D)Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudAnchor : java/lang/Enum {
+	public static final field BOTTOM_CENTER Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field BOTTOM_LEFT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field BOTTOM_RIGHT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field CENTER Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field CENTER_LEFT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field CENTER_RIGHT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field Companion Lxyz/essencexc/astra/api/hud/HudAnchor$Companion;
+	public static final field TOP_CENTER Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field TOP_LEFT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final field TOP_RIGHT Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public final fun fx ()F
+	public final fun fy ()F
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static final fun nearest (FF)Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static fun values ()[Lxyz/essencexc/astra/api/hud/HudAnchor;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudAnchor$Companion {
+	public final fun nearest (FF)Lxyz/essencexc/astra/api/hud/HudAnchor;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudContext {
+	public static final field Companion Lxyz/essencexc/astra/api/hud/HudContext$Companion;
+	public static final field DEFAULT_TEXT_SIZE F
+	public final fun accent ()I
+	public final fun background (FF)V
+	public final fun background (FFF)V
+	public static synthetic fun background$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFILjava/lang/Object;)V
+	public final fun backgroundColor ()I
+	public final fun circle (FFFI)V
+	public final fun element ()Lxyz/essencexc/astra/api/hud/HudElement;
+	public final fun graphics ()Lnet/minecraft/client/gui/GuiGraphicsExtractor;
+	public final fun image (Ljava/lang/String;FFFF)Z
+	public final fun image (Ljava/lang/String;FFFFI)Z
+	public static synthetic fun image$default (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/lang/String;FFFFIILjava/lang/Object;)Z
+	public final fun item (Lnet/minecraft/world/item/ItemStack;FF)V
+	public final fun keyValueGrid (FFFLjava/util/List;)F
+	public final fun keyValueGrid (FFFLjava/util/List;I)F
+	public static synthetic fun keyValueGrid$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFLjava/util/List;IILjava/lang/Object;)F
+	public final fun line (FFFFI)V
+	public final fun line (FFFFIF)V
+	public static synthetic fun line$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFFIFILjava/lang/Object;)V
+	public final fun lineHeight ()F
+	public final fun lineHeight (F)F
+	public static synthetic fun lineHeight$default (Lxyz/essencexc/astra/api/hud/HudContext;FILjava/lang/Object;)F
+	public final fun mutedColor ()I
+	public final fun outline (FFFFI)V
+	public final fun outline (FFFFIF)V
+	public final fun outline (FFFFIFF)V
+	public static synthetic fun outline$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFFIFFILjava/lang/Object;)V
+	public final fun preview ()Z
+	public final fun progressArc (FFFFF)V
+	public final fun progressArc (FFFFFI)V
+	public static synthetic fun progressArc$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFFFIILjava/lang/Object;)V
+	public final fun rect (FFFFI)V
+	public final fun rect (FFFFIF)V
+	public static synthetic fun rect$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFFIFILjava/lang/Object;)V
+	public final fun style ()Lxyz/essencexc/astra/api/hud/HudStyle;
+	public final fun text (Ljava/lang/String;FF)V
+	public final fun text (Ljava/lang/String;FFI)V
+	public final fun text (Ljava/lang/String;FFIF)V
+	public final fun text (Ljava/lang/String;FFIFZ)V
+	public static synthetic fun text$default (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/lang/String;FFIFZILjava/lang/Object;)V
+	public final fun textCentered (Ljava/lang/String;FF)V
+	public final fun textCentered (Ljava/lang/String;FFI)V
+	public final fun textCentered (Ljava/lang/String;FFIF)V
+	public final fun textCentered (Ljava/lang/String;FFIFZ)V
+	public static synthetic fun textCentered$default (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/lang/String;FFIFZILjava/lang/Object;)V
+	public final fun textColor ()I
+	public final fun textRight (Ljava/lang/String;FF)V
+	public final fun textRight (Ljava/lang/String;FFI)V
+	public final fun textRight (Ljava/lang/String;FFIF)V
+	public final fun textRight (Ljava/lang/String;FFIFZ)V
+	public static synthetic fun textRight$default (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/lang/String;FFIFZILjava/lang/Object;)V
+	public final fun textWidth (Ljava/lang/String;)F
+	public final fun textWidth (Ljava/lang/String;F)F
+	public final fun textWidth (Ljava/lang/String;FZ)F
+	public static synthetic fun textWidth$default (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/lang/String;FZILjava/lang/Object;)F
+	public final fun theme ()Lxyz/essencexc/astra/ui/theme/Theme;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudContext$Companion {
+}
+
+public abstract class xyz/essencexc/astra/api/hud/HudElement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;F)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FF)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FFLxyz/essencexc/astra/api/hud/HudStyle;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FFLxyz/essencexc/astra/api/hud/HudStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun defaultLayout ()Lxyz/essencexc/astra/api/hud/HudLayout;
+	public abstract fun draw (Lxyz/essencexc/astra/api/hud/HudContext;)V
+	public final fun getLayout ()Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun getModule ()Lxyz/essencexc/astra/api/Module;
+	public abstract fun height ()F
+	public final fun hideIf (Lxyz/essencexc/astra/api/function/Condition;)Lxyz/essencexc/astra/api/hud/HudElement;
+	public final fun id ()Ljava/lang/String;
+	public final fun lineHeight ()F
+	public final fun lineHeight (F)F
+	public static synthetic fun lineHeight$default (Lxyz/essencexc/astra/api/hud/HudElement;FILjava/lang/Object;)F
+	public final fun resetLayout ()V
+	public final fun setLayout (Lxyz/essencexc/astra/api/hud/HudLayout;)V
+	public final fun textWidth (Ljava/lang/String;)F
+	public final fun textWidth (Ljava/lang/String;F)F
+	public final fun textWidth (Ljava/lang/String;FZ)F
+	public static synthetic fun textWidth$default (Lxyz/essencexc/astra/api/hud/HudElement;Ljava/lang/String;FZILjava/lang/Object;)F
+	public final fun title ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+	public fun visible ()Z
+	public abstract fun width ()F
+}
+
+public final class xyz/essencexc/astra/api/hud/HudFont : java/lang/Enum {
+	public static final field ASTRA Lxyz/essencexc/astra/api/hud/HudFont;
+	public static final field MINECRAFT Lxyz/essencexc/astra/api/hud/HudFont;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/api/hud/HudFont;
+	public static fun values ()[Lxyz/essencexc/astra/api/hud/HudFont;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudLayout {
+	public static final field Companion Lxyz/essencexc/astra/api/hud/HudLayout$Companion;
+	public static final field MAX_SCALE F
+	public static final field MIN_SCALE F
+	public fun <init> (Lxyz/essencexc/astra/api/hud/HudAnchor;FF)V
+	public fun <init> (Lxyz/essencexc/astra/api/hud/HudAnchor;FFF)V
+	public fun <init> (Lxyz/essencexc/astra/api/hud/HudAnchor;FFFZ)V
+	public fun <init> (Lxyz/essencexc/astra/api/hud/HudAnchor;FFFZLxyz/essencexc/astra/api/hud/HudStyle;)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/api/hud/HudAnchor;FFFZLxyz/essencexc/astra/api/hud/HudStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun anchor ()Lxyz/essencexc/astra/api/hud/HudAnchor;
+	public static final fun at (FFFFFZFF)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public static final fun at (FFFFFZFFLxyz/essencexc/astra/api/hud/HudStyle;)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun scale ()F
+	public final fun shown ()Z
+	public final fun style ()Lxyz/essencexc/astra/api/hud/HudStyle;
+	public fun toString ()Ljava/lang/String;
+	public final fun topLeft (FFFF)Lkotlin/Pair;
+	public final fun withPosition (Lxyz/essencexc/astra/api/hud/HudAnchor;FF)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun withScale (F)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun withShown (Z)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun withStyle (Lxyz/essencexc/astra/api/hud/HudStyle;)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun x ()F
+	public final fun y ()F
+}
+
+public final class xyz/essencexc/astra/api/hud/HudLayout$Companion {
+	public final fun at (FFFFFZFF)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public final fun at (FFFFFZFFLxyz/essencexc/astra/api/hud/HudStyle;)Lxyz/essencexc/astra/api/hud/HudLayout;
+	public static synthetic fun at$default (Lxyz/essencexc/astra/api/hud/HudLayout$Companion;FFFFFZFFLxyz/essencexc/astra/api/hud/HudStyle;ILjava/lang/Object;)Lxyz/essencexc/astra/api/hud/HudLayout;
+}
+
+public final class xyz/essencexc/astra/api/hud/HudStyle {
+	public static final field Companion Lxyz/essencexc/astra/api/hud/HudStyle$Companion;
+	public static final field DEFAULT Lxyz/essencexc/astra/api/hud/HudStyle;
+	public fun <init> ()V
+	public fun <init> (Z)V
+	public fun <init> (ZI)V
+	public fun <init> (ZII)V
+	public fun <init> (ZIII)V
+	public fun <init> (ZIIIZ)V
+	public fun <init> (ZIIIZLxyz/essencexc/astra/api/hud/HudFont;)V
+	public fun <init> (ZIIIZLxyz/essencexc/astra/api/hud/HudFont;Z)V
+	public fun <init> (ZIIIZLxyz/essencexc/astra/api/hud/HudFont;ZZ)V
+	public synthetic fun <init> (ZIIIZLxyz/essencexc/astra/api/hud/HudFont;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun accent ()I
+	public final fun background ()Z
+	public final fun backgroundColor ()I
+	public final fun copy (ZIIIZLxyz/essencexc/astra/api/hud/HudFont;ZZ)Lxyz/essencexc/astra/api/hud/HudStyle;
+	public static synthetic fun copy$default (Lxyz/essencexc/astra/api/hud/HudStyle;ZIIIZLxyz/essencexc/astra/api/hud/HudFont;ZZILjava/lang/Object;)Lxyz/essencexc/astra/api/hud/HudStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun font ()Lxyz/essencexc/astra/api/hud/HudFont;
+	public fun hashCode ()I
+	public final fun hideWithChat ()Z
+	public final fun hideWithDebug ()Z
+	public final fun shadow ()Z
+	public final fun textColor ()I
+}
+
+public final class xyz/essencexc/astra/api/hud/HudStyle$Companion {
+}
+
+public final class xyz/essencexc/astra/api/hud/HudText {
+	public static final field INSTANCE Lxyz/essencexc/astra/api/hud/HudText;
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFIFZLxyz/essencexc/astra/api/hud/HudFont;Z)V
+	public static final fun lineHeight (FLxyz/essencexc/astra/api/hud/HudFont;)F
+	public static final fun width (Ljava/lang/String;FZLxyz/essencexc/astra/api/hud/HudFont;)F
+}
+
+public final class xyz/essencexc/astra/api/hud/kit/KeyValueGrid {
+	public static final field INSTANCE Lxyz/essencexc/astra/api/hud/kit/KeyValueGrid;
+	public static final fun draw (Lxyz/essencexc/astra/api/hud/HudContext;FFFLjava/util/List;)V
+	public static final fun draw (Lxyz/essencexc/astra/api/hud/HudContext;FFFLjava/util/List;I)V
+	public static synthetic fun draw$default (Lxyz/essencexc/astra/api/hud/HudContext;FFFLjava/util/List;IILjava/lang/Object;)V
+	public static final fun height (Ljava/util/List;)F
+	public static final fun height (Ljava/util/List;I)F
+	public static final fun height (Ljava/util/List;ILxyz/essencexc/astra/api/hud/HudFont;)F
+	public static final fun height (Lxyz/essencexc/astra/api/hud/HudContext;Ljava/util/List;I)F
+	public static synthetic fun height$default (Ljava/util/List;ILxyz/essencexc/astra/api/hud/HudFont;ILjava/lang/Object;)F
+}
+
+public final class xyz/essencexc/astra/api/hud/kit/KeyValueGrid$Entry {
+	public fun <init> (Ljava/lang/String;Ljava/util/function/Supplier;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/IntSupplier;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/IntSupplier;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun color ()Ljava/util/function/IntSupplier;
+	public final fun key ()Ljava/lang/String;
+	public final fun value ()Ljava/util/function/Supplier;
+}
+
+public final class xyz/essencexc/astra/api/hud/kit/ProgressArc {
+	public static final field INSTANCE Lxyz/essencexc/astra/api/hud/kit/ProgressArc;
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFI)V
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFII)V
+	public static synthetic fun draw$default (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFIIILjava/lang/Object;)V
+}
+
+public class xyz/essencexc/astra/api/hud/kit/StatCard : xyz/essencexc/astra/api/hud/HudElement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;F)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FF)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun columns (I)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public fun draw (Lxyz/essencexc/astra/api/hud/HudContext;)V
+	public final fun headline (Ljava/util/function/Supplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public final fun headline (Ljava/util/function/Supplier;Ljava/lang/String;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public static synthetic fun headline$default (Lxyz/essencexc/astra/api/hud/kit/StatCard;Ljava/util/function/Supplier;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public fun height ()F
+	public final fun progress (Ljava/util/function/DoubleSupplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public final fun ringText (Ljava/util/function/Supplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public final fun row (Ljava/lang/String;Ljava/util/function/Supplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public final fun row (Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/IntSupplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public static synthetic fun row$default (Lxyz/essencexc/astra/api/hud/kit/StatCard;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/IntSupplier;ILjava/lang/Object;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public final fun subtitle (Ljava/util/function/Supplier;)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+	public fun width ()F
+	public final fun width (F)Lxyz/essencexc/astra/api/hud/kit/StatCard;
+}
+
+public class xyz/essencexc/astra/api/hud/kit/TextHud : xyz/essencexc/astra/api/hud/HudElement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;F)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FF)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/lang/String;Lxyz/essencexc/astra/api/hud/HudAnchor;FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun draw (Lxyz/essencexc/astra/api/hud/HudContext;)V
+	public fun height ()F
+	public fun width ()F
+}
+
+public final class xyz/essencexc/astra/api/keybind/AstraKeybind {
+	public static final field Companion Lxyz/essencexc/astra/api/keybind/AstraKeybind$Companion;
+	public final fun alt ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun ctrl ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun getBinding ()Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun getDefaultBinding ()Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun isPressed ()Z
+	public static final fun mouse (I)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public static final fun of (I)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun onPress (Lxyz/essencexc/astra/api/function/KeyAction;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun onRelease (Lxyz/essencexc/astra/api/function/KeyAction;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun register ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun register (Ljava/lang/String;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public static synthetic fun register$default (Lxyz/essencexc/astra/api/keybind/AstraKeybind;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun setBinding (Lxyz/essencexc/astra/api/keybind/KeyBinding;)V
+	public final fun shift ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public static final fun unbound ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun unregister ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun whileHeld (Lxyz/essencexc/astra/api/function/KeyAction;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun worksInGui ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun worksInGui (Z)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public static synthetic fun worksInGui$default (Lxyz/essencexc/astra/api/keybind/AstraKeybind;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+}
+
+public final class xyz/essencexc/astra/api/keybind/AstraKeybind$Companion {
+	public final fun mouse (I)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun of (I)Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+	public final fun unbound ()Lxyz/essencexc/astra/api/keybind/AstraKeybind;
+}
+
+public final class xyz/essencexc/astra/api/keybind/InputType : java/lang/Enum {
+	public static final field KEYBOARD Lxyz/essencexc/astra/api/keybind/InputType;
+	public static final field MOUSE Lxyz/essencexc/astra/api/keybind/InputType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/api/keybind/InputType;
+	public static fun values ()[Lxyz/essencexc/astra/api/keybind/InputType;
+}
+
+public final class xyz/essencexc/astra/api/keybind/KeyBinding {
+	public static final field Companion Lxyz/essencexc/astra/api/keybind/KeyBinding$Companion;
+	public static final field UNBOUND Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public static final field UNKNOWN_CODE I
+	public fun <init> (Lxyz/essencexc/astra/api/keybind/InputType;IZZZ)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/api/keybind/InputType;IZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun alt ()Z
+	public final fun code ()I
+	public final fun ctrl ()Z
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun isBound ()Z
+	public static final fun key (I)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public static final fun mouse (I)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun shift ()Z
+	public fun toString ()Ljava/lang/String;
+	public final fun type ()Lxyz/essencexc/astra/api/keybind/InputType;
+	public final fun withAlt (Z)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public static synthetic fun withAlt$default (Lxyz/essencexc/astra/api/keybind/KeyBinding;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun withCtrl (Z)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public static synthetic fun withCtrl$default (Lxyz/essencexc/astra/api/keybind/KeyBinding;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun withShift (Z)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public static synthetic fun withShift$default (Lxyz/essencexc/astra/api/keybind/KeyBinding;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+}
+
+public final class xyz/essencexc/astra/api/keybind/KeyBinding$Companion {
+	public final fun key (I)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+	public final fun mouse (I)Lxyz/essencexc/astra/api/keybind/KeyBinding;
+}
+
+public abstract class xyz/essencexc/astra/api/kt/KtModule : xyz/essencexc/astra/api/Module {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	protected final fun button (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun button$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun checkbox (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun checkbox$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun color (Ljava/lang/String;IZLjava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun color$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;IZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun dropdown (Ljava/lang/String;Ljava/lang/Enum;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun dropdown$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Ljava/lang/Enum;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun hud (Lxyz/essencexc/astra/api/hud/HudElement;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun hud$default (Lxyz/essencexc/astra/api/kt/KtModule;Lxyz/essencexc/astra/api/hud/HudElement;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun info (Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/annotations/InfoType;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun info$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/annotations/InfoType;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun itemList (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun itemList$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun keybind (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun keybind$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun masterToggle (Z)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun masterToggle$default (Lxyz/essencexc/astra/api/kt/KtModule;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public final fun multiSelect (Ljava/lang/String;Ljava/lang/Class;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun number (Ljava/lang/String;DDDLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun number (Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun number$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;DDDLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun number$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun position (Ljava/lang/String;Lnet/minecraft/core/BlockPos;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun position (Ljava/lang/String;Lnet/minecraft/world/phys/Vec3;Ljava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun position$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Lnet/minecraft/core/BlockPos;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun position$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Lnet/minecraft/world/phys/Vec3;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun rangeSlider (Ljava/lang/String;Lkotlin/ranges/ClosedFloatingPointRange;Lkotlin/ranges/ClosedFloatingPointRange;FFLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun rangeSlider (Ljava/lang/String;Lkotlin/ranges/IntRange;Lkotlin/ranges/IntRange;IILjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun rangeSlider$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Lkotlin/ranges/ClosedFloatingPointRange;Lkotlin/ranges/ClosedFloatingPointRange;FFLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun rangeSlider$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Lkotlin/ranges/IntRange;Lkotlin/ranges/IntRange;IILjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun slider (Ljava/lang/String;DLkotlin/ranges/ClosedFloatingPointRange;DLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;Z)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun slider (Ljava/lang/String;FLkotlin/ranges/ClosedFloatingPointRange;FLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;Z)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun slider (Ljava/lang/String;ILkotlin/ranges/IntRange;ILjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;Z)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun slider$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;DLkotlin/ranges/ClosedFloatingPointRange;DLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun slider$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;FLkotlin/ranges/ClosedFloatingPointRange;FLjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun slider$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;ILkotlin/ranges/IntRange;ILjava/lang/String;Ljava/lang/String;Lxyz/essencexc/astra/api/function/ValueFormatter;ZILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun switch (Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun switch$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	protected final fun text (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public static synthetic fun text$default (Lxyz/essencexc/astra/api/kt/KtModule;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+}
+
+public final class xyz/essencexc/astra/api/kt/KtModule$OptionDelegate : kotlin/properties/PropertyDelegateProvider {
+	public final fun dependsOn ([Lkotlin/reflect/KProperty;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public final fun hideIf (Lxyz/essencexc/astra/api/function/Condition;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public final fun keywords ([Ljava/lang/String;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public final fun onChange (Lxyz/essencexc/astra/api/function/OptionListener;)Lxyz/essencexc/astra/api/kt/KtModule$OptionDelegate;
+	public synthetic fun provideDelegate (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
+	public fun provideDelegate (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Lkotlin/properties/ReadWriteProperty;
+}
+
+public final class xyz/essencexc/astra/api/value/FloatRange {
+	public static final field Companion Lxyz/essencexc/astra/api/value/FloatRange$Companion;
+	public final fun clamp (F)F
+	public final fun contains (F)Z
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun from ()F
+	public fun hashCode ()I
+	public static final fun of (FF)Lxyz/essencexc/astra/api/value/FloatRange;
+	public static final synthetic fun of (Lkotlin/ranges/ClosedFloatingPointRange;)Lxyz/essencexc/astra/api/value/FloatRange;
+	public final fun random ()F
+	public final fun span ()F
+	public final fun to ()F
+	public final fun toKotlin ()Lkotlin/ranges/ClosedFloatingPointRange;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/value/FloatRange$Companion {
+	public final fun of (FF)Lxyz/essencexc/astra/api/value/FloatRange;
+	public final synthetic fun of (Lkotlin/ranges/ClosedFloatingPointRange;)Lxyz/essencexc/astra/api/value/FloatRange;
+}
+
+public final class xyz/essencexc/astra/api/value/IntRange : java/lang/Iterable, kotlin/jvm/internal/markers/KMappedMarker {
+	public static final field Companion Lxyz/essencexc/astra/api/value/IntRange$Companion;
+	public final fun clamp (I)I
+	public final fun contains (I)Z
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun from ()I
+	public fun hashCode ()I
+	public fun iterator ()Ljava/util/Iterator;
+	public static final fun of (II)Lxyz/essencexc/astra/api/value/IntRange;
+	public static final synthetic fun of (Lkotlin/ranges/IntRange;)Lxyz/essencexc/astra/api/value/IntRange;
+	public final fun random ()I
+	public final fun span ()I
+	public final fun to ()I
+	public final fun toKotlin ()Lkotlin/ranges/IntRange;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class xyz/essencexc/astra/api/value/IntRange$Companion {
+	public final fun of (II)Lxyz/essencexc/astra/api/value/IntRange;
+	public final synthetic fun of (Lkotlin/ranges/IntRange;)Lxyz/essencexc/astra/api/value/IntRange;
+}
+
+public final class xyz/essencexc/astra/core/AstraConfigException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class xyz/essencexc/astra/core/AstraInit : net/fabricmc/api/ClientModInitializer {
+	public static final field INSTANCE Lxyz/essencexc/astra/core/AstraInit;
+	public fun onInitializeClient ()V
+}
+
+public abstract class xyz/essencexc/astra/ui/core/AstraElement : foo/starred/cascade/primitives/base/impl/IPrimitiveElement {
+	public fun <init> ()V
+	public final fun accentColor ()I
+	public fun constrain (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)V
+	public final fun getAccent ()Ljava/lang/Integer;
+	public fun getColor ()Lfoo/starred/cascade/graphics/geometry/CascadeGeometricColor;
+	public final fun getFillHeight ()Z
+	public final fun getFixedHeight ()Ljava/lang/Float;
+	public final fun getFixedWidth ()Ljava/lang/Float;
+	public final fun getGrow ()Z
+	public fun getHeight ()F
+	public final fun getTheme ()Lxyz/essencexc/astra/ui/theme/Theme;
+	public fun getWidth ()F
+	public fun getX ()F
+	public fun getY ()F
+	public final fun hit (DD)Z
+	public final fun place (FFFF)V
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setAccent (Ljava/lang/Integer;)V
+	public fun setColor (Lfoo/starred/cascade/graphics/geometry/CascadeGeometricColor;)V
+	public final fun setFillHeight (Z)V
+	public final fun setFixedHeight (Ljava/lang/Float;)V
+	public final fun setFixedWidth (Ljava/lang/Float;)V
+	public final fun setGrow (Z)V
+	public fun setHeight (F)V
+	public fun setWidth (F)V
+	public fun setX (F)V
+	public fun setY (F)V
+	public final fun shown ()Z
+}
+
+public class xyz/essencexc/astra/ui/core/AstraScreen : foo/starred/cascade/screen/CascadeScreen {
+	public fun <init> (Ljava/lang/String;Lfoo/starred/cascade/graphics/geometry/CascadeGeometricResolution;)V
+	public synthetic fun <init> (Ljava/lang/String;Lfoo/starred/cascade/graphics/geometry/CascadeGeometricResolution;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun add (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Lxyz/essencexc/astra/ui/core/AstraScreen;
+	public final fun getBackdrop ()Lxyz/essencexc/astra/ui/core/Backdrop;
+	public final fun getOverlay ()Lxyz/essencexc/astra/ui/layout/Overlay;
+	public fun isPauseScreen ()Z
+	public fun removed ()V
+}
+
+public abstract class xyz/essencexc/astra/ui/core/AstraWidget : xyz/essencexc/astra/ui/core/AstraElement {
+	public fun <init> ()V
+	public final fun blur ()V
+	protected final fun c (I)I
+	protected fun cursorType ()Lcom/mojang/blaze3d/platform/cursor/CursorType;
+	public final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun focus ()V
+	protected final fun focusRing (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFF)V
+	public final fun getEnabled ()Z
+	public final fun getEnabledWhen ()Lkotlin/jvm/functions/Function0;
+	protected final fun getFocusGlow ()Lxyz/essencexc/astra/ui/util/Motion;
+	public final fun getFocusable ()Z
+	protected final fun getHover ()Lxyz/essencexc/astra/ui/util/Motion;
+	public final fun getPressed ()Z
+	public final fun isEnabled ()Z
+	public final fun isFocused ()Z
+	protected fun onChar (C)Z
+	protected fun onFocusChanged (Z)V
+	protected fun onKey (I)Z
+	protected fun onKeyUp (I)Z
+	protected fun onMouseDown (DDI)Z
+	protected fun onMouseUp (DDIZ)Z
+	protected fun onScroll (D)Z
+	protected abstract fun paint (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun setEnabled (Z)V
+	public final fun setEnabledWhen (Lkotlin/jvm/functions/Function0;)V
+	public final fun setFocusable (Z)V
+}
+
+public final class xyz/essencexc/astra/ui/core/Backdrop : xyz/essencexc/astra/ui/core/AstraElement {
+	public fun <init> ()V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+}
+
+public final class xyz/essencexc/astra/ui/core/FocusManager {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/core/FocusManager;
+	public static final fun fallback (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public static final fun getKeyboard ()Z
+	public static final fun move (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;Z)V
+	public static final fun reveal (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)V
+	public static final fun setKeyboard (Z)V
+}
+
+public final class xyz/essencexc/astra/ui/core/Keys {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/core/Keys;
+	public final fun alt ()Z
+	public static final fun button (I)I
+	public final fun ctrl ()Z
+	public static final fun describe (Lxyz/essencexc/astra/api/keybind/KeyBinding;)Ljava/lang/String;
+	public final fun getClipboard ()Ljava/lang/String;
+	public final fun isActivate (I)Z
+	public final fun isEnter (I)Z
+	public final fun isModifier (I)Z
+	public static final fun keyName (I)Ljava/lang/String;
+	public static final fun rawButton (I)I
+	public final fun setClipboard (Ljava/lang/String;)V
+	public final fun shift ()Z
+	public static final fun stopTextInput ()V
+	public static final fun textInput (Ljava/lang/Object;Z)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/Align : java/lang/Enum {
+	public static final field CENTER Lxyz/essencexc/astra/ui/layout/Align;
+	public static final field END Lxyz/essencexc/astra/ui/layout/Align;
+	public static final field START Lxyz/essencexc/astra/ui/layout/Align;
+	public static final field STRETCH Lxyz/essencexc/astra/ui/layout/Align;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/ui/layout/Align;
+	public static fun values ()[Lxyz/essencexc/astra/ui/layout/Align;
+}
+
+public abstract class xyz/essencexc/astra/ui/layout/Box : xyz/essencexc/astra/ui/core/AstraElement {
+	public static final field Companion Lxyz/essencexc/astra/ui/layout/Box$Companion;
+	public fun <init> ()V
+	public final fun add ([Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Lxyz/essencexc/astra/ui/layout/Box;
+	public final fun clear ()V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getBorder ()Lkotlin/jvm/functions/Function0;
+	public final fun getFill ()Lkotlin/jvm/functions/Function0;
+	public final fun getGap ()F
+	public final fun getPadding ()F
+	public final fun getPaddingX ()Ljava/lang/Float;
+	public final fun getPaddingY ()Ljava/lang/Float;
+	protected final fun getPx ()F
+	protected final fun getPy ()F
+	public final fun getRadius ()Lkotlin/jvm/functions/Function0;
+	public final fun getShadow ()Z
+	protected final fun items ()Ljava/util/List;
+	public final fun setBorder (Lkotlin/jvm/functions/Function0;)V
+	public final fun setFill (Lkotlin/jvm/functions/Function0;)V
+	public final fun setGap (F)V
+	public final fun setPadding (F)V
+	public final fun setPaddingX (Ljava/lang/Float;)V
+	public final fun setPaddingY (Ljava/lang/Float;)V
+	public final fun setRadius (Lkotlin/jvm/functions/Function0;)V
+	public final fun setShadow (Z)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/Box$Companion {
+	public final fun grows (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Z
+	public final fun prefH (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;FLfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)F
+	public final fun prefW (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)F
+	public final fun put (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;FFFF)V
+}
+
+public class xyz/essencexc/astra/ui/layout/Column : xyz/essencexc/astra/ui/layout/Box {
+	public fun <init> ()V
+	public final fun getAlign ()Lxyz/essencexc/astra/ui/layout/Align;
+	public fun layout ()V
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setAlign (Lxyz/essencexc/astra/ui/layout/Align;)V
+}
+
+public class xyz/essencexc/astra/ui/layout/Grid : xyz/essencexc/astra/ui/layout/Box {
+	public fun <init> ()V
+	public final fun getMaxColumns ()I
+	public final fun getMinCellWidth ()F
+	public final fun getRowGap ()Ljava/lang/Float;
+	public fun layout ()V
+	public fun prefHeight (F)F
+	public final fun setMaxColumns (I)V
+	public final fun setMinCellWidth (F)V
+	public final fun setRowGap (Ljava/lang/Float;)V
+}
+
+public class xyz/essencexc/astra/ui/layout/HScroll : xyz/essencexc/astra/ui/layout/Row, foo/starred/cascade/primitives/base/interfaces/IPrimitiveScrollable {
+	public fun <init> ()V
+	public fun find (DD)Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getFade ()Lkotlin/jvm/functions/Function0;
+	public final fun getMaxScroll ()F
+	public fun layout ()V
+	public fun render (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun reveal (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)V
+	public final fun scrollTo (F)V
+	public final fun setFade (Lkotlin/jvm/functions/Function0;)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/Overlay : xyz/essencexc/astra/ui/core/AstraElement {
+	public static final field Companion Lxyz/essencexc/astra/ui/layout/Overlay$Companion;
+	public fun <init> ()V
+	public final fun close (Lxyz/essencexc/astra/ui/layout/Popup;)V
+	public final fun closeAll ()V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getPopups ()Ljava/util/List;
+	public final fun isOpen ()Z
+	public fun layout ()V
+	public static final fun of (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Lxyz/essencexc/astra/ui/layout/Overlay;
+	public final fun open (Lxyz/essencexc/astra/ui/layout/Popup;)V
+	public fun render (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun tooltip (Ljava/lang/String;FF)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/Overlay$Companion {
+	public final fun of (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)Lxyz/essencexc/astra/ui/layout/Overlay;
+}
+
+public class xyz/essencexc/astra/ui/layout/Popup : xyz/essencexc/astra/ui/layout/Column {
+	public fun <init> (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;)V
+	public synthetic fun <init> (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun getAlignEnd ()Z
+	public final fun getAnchor ()Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getMatchAnchorWidth ()Z
+	public final fun getOnClosed ()Lkotlin/jvm/functions/Function0;
+	public final fun getOwner ()Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getSpacing ()F
+	public final fun overlay ()Lxyz/essencexc/astra/ui/layout/Overlay;
+	public fun render (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun setAlignEnd (Z)V
+	public final fun setMatchAnchorWidth (Z)V
+	public final fun setOnClosed (Lkotlin/jvm/functions/Function0;)V
+	public final fun setSpacing (F)V
+}
+
+public class xyz/essencexc/astra/ui/layout/Row : xyz/essencexc/astra/ui/layout/Box {
+	public fun <init> ()V
+	public final fun getAlign ()Lxyz/essencexc/astra/ui/layout/Align;
+	public fun layout ()V
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setAlign (Lxyz/essencexc/astra/ui/layout/Align;)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/ScrollPane : xyz/essencexc/astra/ui/core/AstraElement, foo/starred/cascade/primitives/base/interfaces/IPrimitiveScrollable {
+	public fun <init> ()V
+	public fun find (DD)Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getBarInset ()F
+	public final fun getContent ()Lxyz/essencexc/astra/ui/layout/Column;
+	public final fun getGutter ()F
+	public final fun getMaxScroll ()F
+	public final fun getScroll ()F
+	public final fun getStep ()F
+	public fun layout ()V
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public fun render (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun reveal (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;F)V
+	public static synthetic fun reveal$default (Lxyz/essencexc/astra/ui/layout/ScrollPane;Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;FILjava/lang/Object;)V
+	public final fun scrollTo (FZ)V
+	public static synthetic fun scrollTo$default (Lxyz/essencexc/astra/ui/layout/ScrollPane;FZILjava/lang/Object;)V
+	public final fun scrollToTop (Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;F)V
+	public static synthetic fun scrollToTop$default (Lxyz/essencexc/astra/ui/layout/ScrollPane;Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;FILjava/lang/Object;)V
+	public final fun setBarInset (F)V
+	public final fun setGutter (F)V
+	public final fun setStep (F)V
+}
+
+public final class xyz/essencexc/astra/ui/layout/Spacer : xyz/essencexc/astra/ui/core/AstraElement {
+	public fun <init> ()V
+	public fun <init> (FF)V
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class xyz/essencexc/astra/ui/theme/Theme {
+	public static final field ACCENTS Ljava/util/List;
+	public static final field Companion Lxyz/essencexc/astra/ui/theme/Theme$Companion;
+	public static final field DAY Lxyz/essencexc/astra/ui/theme/Theme;
+	public static final field NIGHT Lxyz/essencexc/astra/ui/theme/Theme;
+	public fun <init> (Ljava/lang/String;IIIIIIIIIIIIIIIFFFFFFFZ)V
+	public synthetic fun <init> (Ljava/lang/String;IIIIIIIIIIIIIIIFFFFFFFZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()I
+	public final fun component11 ()I
+	public final fun component12 ()I
+	public final fun component13 ()I
+	public final fun component14 ()I
+	public final fun component15 ()I
+	public final fun component16 ()I
+	public final fun component17 ()F
+	public final fun component18 ()F
+	public final fun component19 ()F
+	public final fun component2 ()I
+	public final fun component20 ()F
+	public final fun component21 ()F
+	public final fun component22 ()F
+	public final fun component23 ()F
+	public final fun component24 ()Z
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()I
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()I
+	public final fun copy (Ljava/lang/String;IIIIIIIIIIIIIIIFFFFFFFZ)Lxyz/essencexc/astra/ui/theme/Theme;
+	public static synthetic fun copy$default (Lxyz/essencexc/astra/ui/theme/Theme;Ljava/lang/String;IIIIIIIIIIIIIIIFFFFFFFZILjava/lang/Object;)Lxyz/essencexc/astra/ui/theme/Theme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent ()I
+	public final fun getAnimations ()Z
+	public final fun getBackground ()I
+	public final fun getBorder ()I
+	public final fun getBorderStrong ()I
+	public final fun getDanger ()I
+	public final fun getFontBody ()F
+	public final fun getFontHeading ()F
+	public final fun getFontSmall ()F
+	public final fun getFontTitle ()F
+	public final fun getInfo ()I
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOnAccent ()I
+	public final fun getRadiusLarge ()F
+	public final fun getRadiusMedium ()F
+	public final fun getRadiusSmall ()F
+	public final fun getSuccess ()I
+	public final fun getSurface ()I
+	public final fun getSurfaceHover ()I
+	public final fun getSurfaceRaised ()I
+	public final fun getText ()I
+	public final fun getTextFaint ()I
+	public final fun getTextMuted ()I
+	public final fun getWarning ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun withAccent (I)Lxyz/essencexc/astra/ui/theme/Theme;
+}
+
+public final class xyz/essencexc/astra/ui/theme/Theme$Companion {
+}
+
+public final class xyz/essencexc/astra/ui/theme/Themes {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/theme/Themes;
+	public static final fun getCurrent ()Lxyz/essencexc/astra/ui/theme/Theme;
+	public static final fun listen (Lkotlin/jvm/functions/Function1;)V
+	public static final fun setCurrent (Lxyz/essencexc/astra/ui/theme/Theme;)V
+}
+
+public final class xyz/essencexc/astra/ui/util/Colors {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/util/Colors;
+	public static final fun alpha (I)I
+	public static final fun argb (IIII)I
+	public static final fun blue (I)I
+	public static final fun fade (IF)I
+	public static final fun green (I)I
+	public static final fun hex (IZ)Ljava/lang/String;
+	public static final fun hsv (FFFF)I
+	public static synthetic fun hsv$default (FFFFILjava/lang/Object;)I
+	public static final fun luminance (I)F
+	public static final fun mix (IIF)I
+	public static final fun parseHex (Ljava/lang/String;)Ljava/lang/Integer;
+	public static final fun red (I)I
+	public static final fun toHsv (I)[F
+	public static final fun withAlpha (IF)I
+}
+
+public final class xyz/essencexc/astra/ui/util/Images {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/util/Images;
+	public static final fun available (Ljava/lang/String;)Z
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFF)Z
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFFI)Z
+	public static final fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFFIF)Z
+	public static synthetic fun draw$default (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFFIFILjava/lang/Object;)Z
+}
+
+public final class xyz/essencexc/astra/ui/util/Motion {
+	public fun <init> ()V
+	public fun <init> (FF)V
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun get ()F
+	public final fun getSettled ()Z
+	public final fun getSpeed ()F
+	public final fun getTarget ()F
+	public final fun setSpeed (F)V
+	public final fun snap (F)Lxyz/essencexc/astra/ui/util/Motion;
+	public final fun to (F)Lxyz/essencexc/astra/ui/util/Motion;
+	public final fun to (Z)Lxyz/essencexc/astra/ui/util/Motion;
+}
+
+public final class xyz/essencexc/astra/ui/util/Paint {
+	public static final field INSTANCE Lxyz/essencexc/astra/ui/util/Paint;
+	public final fun check (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFIFF)V
+	public static synthetic fun check$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFIFFILjava/lang/Object;)V
+	public final fun checker (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFF)V
+	public static synthetic fun checker$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFILjava/lang/Object;)V
+	public final fun chevron (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFIFF)V
+	public static synthetic fun chevron$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFIFFILjava/lang/Object;)V
+	public final fun circle (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFI)V
+	public final fun clip (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFLkotlin/jvm/functions/Function0;)V
+	public final fun gradient (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFLfoo/starred/cascade/graphics/geometry/CascadeGeometricColor;F)V
+	public static synthetic fun gradient$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFLfoo/starred/cascade/graphics/geometry/CascadeGeometricColor;FILjava/lang/Object;)V
+	public final fun line (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIF)V
+	public static synthetic fun line$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIFILjava/lang/Object;)V
+	public final fun lineHeight (F)F
+	public final fun lines (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/util/List;FFIFF)V
+	public static synthetic fun lines$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/util/List;FFIFFILjava/lang/Object;)V
+	public final fun outline (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIFF)V
+	public static synthetic fun outline$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIFFILjava/lang/Object;)V
+	public final fun radius (F)Lfoo/starred/cascade/graphics/geometry/CascadeGeometricRadius;
+	public final fun rect (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIF)V
+	public static synthetic fun rect$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIFILjava/lang/Object;)V
+	public final fun rect4 (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFIFFFF)V
+	public final fun shadow (Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFFIF)V
+	public static synthetic fun shadow$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFFFFFIFILjava/lang/Object;)V
+	public final fun text (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFIFZ)V
+	public static synthetic fun text$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFIFZILjava/lang/Object;)V
+	public final fun textCentered (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFIFZ)V
+	public static synthetic fun textCentered$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFIFZILjava/lang/Object;)V
+	public final fun textMid (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFIFZ)V
+	public static synthetic fun textMid$default (Lxyz/essencexc/astra/ui/util/Paint;Lnet/minecraft/client/gui/GuiGraphicsExtractor;Ljava/lang/String;FFFIFZILjava/lang/Object;)V
+	public final fun truncate (Ljava/lang/String;FFZ)Ljava/lang/String;
+	public static synthetic fun truncate$default (Lxyz/essencexc/astra/ui/util/Paint;Ljava/lang/String;FFZILjava/lang/Object;)Ljava/lang/String;
+	public final fun width (Ljava/lang/String;FZ)F
+	public static synthetic fun width$default (Lxyz/essencexc/astra/ui/util/Paint;Ljava/lang/String;FZILjava/lang/Object;)F
+	public final fun wrap (Ljava/lang/String;FFZ)Ljava/util/List;
+	public static synthetic fun wrap$default (Lxyz/essencexc/astra/ui/util/Paint;Ljava/lang/String;FFZILjava/lang/Object;)Ljava/util/List;
+	public final fun wrappedHeight (IFF)F
+	public static synthetic fun wrappedHeight$default (Lxyz/essencexc/astra/ui/util/Paint;IFFILjava/lang/Object;)F
+}
+
+public abstract interface class xyz/essencexc/astra/ui/widgets/Binding {
+	public static final field Companion Lxyz/essencexc/astra/ui/widgets/Binding$Companion;
+	public abstract fun get ()Ljava/lang/Object;
+	public static fun hold (Ljava/lang/Object;)Lxyz/essencexc/astra/ui/widgets/Binding;
+	public static fun of (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lxyz/essencexc/astra/ui/widgets/Binding;
+	public abstract fun set (Ljava/lang/Object;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Binding$Companion {
+	public final fun hold (Ljava/lang/Object;)Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun of (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lxyz/essencexc/astra/ui/widgets/Binding;
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Button : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Ljava/lang/String;Lxyz/essencexc/astra/ui/widgets/Button$Style;Lkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (Ljava/lang/String;Lxyz/essencexc/astra/ui/widgets/Button$Style;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAction ()Lkotlin/jvm/functions/Function0;
+	public final fun getFireOnPress ()Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getStyle ()Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public fun prefWidth ()F
+	public final fun setAction (Lkotlin/jvm/functions/Function0;)V
+	public final fun setFireOnPress (Z)V
+	public final fun setLabel (Ljava/lang/String;)V
+	public final fun setStyle (Lxyz/essencexc/astra/ui/widgets/Button$Style;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Button$Style : java/lang/Enum {
+	public static final field DANGER Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public static final field GHOST Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public static final field PRIMARY Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public static final field SECONDARY Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/ui/widgets/Button$Style;
+	public static fun values ()[Lxyz/essencexc/astra/ui/widgets/Button$Style;
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Checkbox : xyz/essencexc/astra/ui/widgets/ToggleWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/ColorPicker : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Z)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAlpha ()Z
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun isOpen ()Z
+	public final fun open ()V
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Dropdown : xyz/essencexc/astra/ui/core/AstraWidget {
+	public static final field Companion Lxyz/essencexc/astra/ui/widgets/Dropdown$Companion;
+	public static final field MAX_VISIBLE I
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Ljava/util/List;)V
+	public final fun close ()V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun isOpen ()Z
+	public final fun open ()V
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Dropdown$Companion {
+}
+
+public final class xyz/essencexc/astra/ui/widgets/IconButton : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAction ()Lkotlin/jvm/functions/Function0;
+	public final fun getGlyph ()Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+	public final fun getHideWhenDisabled ()Z
+	public final fun getTooltip ()Ljava/lang/String;
+	public final fun setHideWhenDisabled (Z)V
+	public final fun setTooltip (Ljava/lang/String;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/IconButton$Glyph : java/lang/Enum {
+	public static final field REMOVE Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+	public static final field RESET Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+	public static final field UP Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+	public static fun values ()[Lxyz/essencexc/astra/ui/widgets/IconButton$Glyph;
+}
+
+public final class xyz/essencexc/astra/ui/widgets/InfoBox : xyz/essencexc/astra/ui/core/AstraElement {
+	public fun <init> (Lxyz/essencexc/astra/api/annotations/InfoType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/api/annotations/InfoType;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getText ()Lkotlin/jvm/functions/Function0;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getType ()Lxyz/essencexc/astra/api/annotations/InfoType;
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setText (Lkotlin/jvm/functions/Function0;)V
+	public final fun setTitle (Ljava/lang/String;)V
+	public final fun setType (Lxyz/essencexc/astra/api/annotations/InfoType;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/ItemListEditor : xyz/essencexc/astra/ui/layout/Column {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Ljava/lang/String;II)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Ljava/lang/String;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getMaxItems ()I
+	public final fun getMaxLength ()I
+	public final fun getPlaceholder ()Ljava/lang/String;
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/KeybindButton : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;)V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getListening ()Z
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Label : xyz/essencexc/astra/ui/core/AstraElement {
+	public fun <init> (Ljava/lang/String;ZZLkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (Ljava/lang/String;ZZLkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getBold ()Z
+	public final fun getColour ()Lkotlin/jvm/functions/Function0;
+	public final fun getMuted ()Z
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTextSize ()Lkotlin/jvm/functions/Function0;
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setBold (Z)V
+	public final fun setColour (Lkotlin/jvm/functions/Function0;)V
+	public final fun setMuted (Z)V
+	public final fun setText (Ljava/lang/String;)V
+	public final fun setTextSize (Lkotlin/jvm/functions/Function0;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/MultiSelect : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Ljava/util/List;)V
+	public final fun close ()V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun isOpen ()Z
+	public final fun open ()V
+	public fun prefWidth ()F
+	public final fun toggle (I)V
+	public final fun toggleAll ()V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/NumberField : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;Ljava/lang/String;)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun find (DD)Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getField ()Lxyz/essencexc/astra/ui/widgets/TextField;
+	public final fun getNumbers ()Lxyz/essencexc/astra/ui/widgets/NumberScale;
+	public fun layout ()V
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/NumberScale {
+	public fun <init> (DDDZ)V
+	public fun <init> (DDDZD)V
+	public fun <init> (DDDZDZ)V
+	public synthetic fun <init> (DDDZDZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun at (F)D
+	public final fun fraction (D)F
+	public final fun getIncrement ()D
+	public final fun getInteger ()Z
+	public final fun getLogarithmic ()Z
+	public final fun getMax ()D
+	public final fun getMin ()D
+	public final fun getStep ()D
+	public final fun nudge (DI)D
+	public final fun parse (Ljava/lang/String;)Ljava/lang/Double;
+	public final fun plain (D)Ljava/lang/String;
+	public final fun snap (D)D
+}
+
+public final class xyz/essencexc/astra/ui/widgets/PositionInput : xyz/essencexc/astra/ui/layout/Row {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Z)V
+	public fun draw (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getInteger ()Z
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/RangeSlider : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;DLxyz/essencexc/astra/api/function/ValueFormatter;)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;DLxyz/essencexc/astra/api/function/ValueFormatter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getFormatter ()Lxyz/essencexc/astra/api/function/ValueFormatter;
+	public final fun getMinSpread ()D
+	public final fun getNumbers ()Lxyz/essencexc/astra/ui/widgets/NumberScale;
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Slider : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;Lxyz/essencexc/astra/api/function/ValueFormatter;Z)V
+	public synthetic fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;Lxyz/essencexc/astra/ui/widgets/NumberScale;Lxyz/essencexc/astra/api/function/ValueFormatter;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun find (DD)Lfoo/starred/cascade/primitives/base/impl/IPrimitiveElement;
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	public final fun getBox ()Lxyz/essencexc/astra/ui/widgets/TextField;
+	public final fun getFormatter ()Lxyz/essencexc/astra/api/function/ValueFormatter;
+	public final fun getNumbers ()Lxyz/essencexc/astra/ui/widgets/NumberScale;
+	public fun layout ()V
+	public fun prefWidth ()F
+}
+
+public final class xyz/essencexc/astra/ui/widgets/Switch : xyz/essencexc/astra/ui/widgets/ToggleWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;)V
+}
+
+public class xyz/essencexc/astra/ui/widgets/TextArea : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected fun cursorType ()Lcom/mojang/blaze3d/platform/cursor/CursorType;
+	public final fun getMaxLength ()I
+	public final fun getMaxLines ()I
+	public final fun getMinLines ()I
+	public final fun getOnChange ()Lkotlin/jvm/functions/Function1;
+	public final fun getOnCommit ()Lkotlin/jvm/functions/Function1;
+	public final fun getPlaceholder ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	protected fun onChar (C)Z
+	protected fun onFocusChanged (Z)V
+	protected fun onKey (I)Z
+	protected fun onMouseDown (DDI)Z
+	protected fun onScroll (D)Z
+	protected fun paint (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public fun prefHeight (F)F
+	public fun prefWidth ()F
+	public final fun setMaxLength (I)V
+	public final fun setMaxLines (I)V
+	public final fun setMinLines (I)V
+	public final fun setOnChange (Lkotlin/jvm/functions/Function1;)V
+	public final fun setOnCommit (Lkotlin/jvm/functions/Function1;)V
+	public final fun setPlaceholder (Ljava/lang/String;)V
+	public final fun setText (Ljava/lang/String;)V
+}
+
+public class xyz/essencexc/astra/ui/widgets/TextField : xyz/essencexc/astra/ui/core/AstraWidget {
+	public static final field CONTROL_HEIGHT F
+	public static final field Companion Lxyz/essencexc/astra/ui/widgets/TextField$Companion;
+	public static final field NUMERIC Lkotlin/jvm/functions/Function1;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected fun cursorType ()Lcom/mojang/blaze3d/platform/cursor/CursorType;
+	public final fun flash ()V
+	public final fun getCaret ()I
+	public final fun getCentered ()Z
+	public final fun getChrome ()Z
+	public final fun getFilter ()Lkotlin/jvm/functions/Function1;
+	public final fun getHasSelection ()Z
+	public final fun getMaxLength ()I
+	public final fun getOnChange ()Lkotlin/jvm/functions/Function1;
+	public final fun getOnCommit ()Lkotlin/jvm/functions/Function1;
+	public final fun getOnKeyHook ()Lkotlin/jvm/functions/Function1;
+	public final fun getPlaceholder ()Ljava/lang/String;
+	public final fun getSelectAllOnFocus ()Z
+	public final fun getSelection ()Lkotlin/ranges/IntRange;
+	public final fun getSuffix ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	protected fun onChar (C)Z
+	protected fun onFocusChanged (Z)V
+	protected fun onKey (I)Z
+	protected fun onMouseDown (DDI)Z
+	protected fun paint (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	public fun prefWidth ()F
+	public final fun selectAll ()V
+	public final fun setCentered (Z)V
+	public final fun setChrome (Z)V
+	public final fun setFilter (Lkotlin/jvm/functions/Function1;)V
+	public final fun setMaxLength (I)V
+	public final fun setOnChange (Lkotlin/jvm/functions/Function1;)V
+	public final fun setOnCommit (Lkotlin/jvm/functions/Function1;)V
+	public final fun setOnKeyHook (Lkotlin/jvm/functions/Function1;)V
+	public final fun setPlaceholder (Ljava/lang/String;)V
+	public final fun setSelectAllOnFocus (Z)V
+	public final fun setSuffix (Ljava/lang/String;)V
+	public final fun setText (Ljava/lang/String;)V
+}
+
+public final class xyz/essencexc/astra/ui/widgets/TextField$Companion {
+}
+
+public abstract class xyz/essencexc/astra/ui/widgets/ToggleWidget : xyz/essencexc/astra/ui/core/AstraWidget {
+	public fun <init> (Lxyz/essencexc/astra/ui/widgets/Binding;)V
+	public final fun getBinding ()Lxyz/essencexc/astra/ui/widgets/Binding;
+	protected final fun getOn ()Lxyz/essencexc/astra/ui/util/Motion;
+	protected fun onKey (I)Z
+	protected fun onMouseDown (DDI)Z
+	protected fun paint (Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V
+	protected abstract fun paintToggle (Lnet/minecraft/client/gui/GuiGraphicsExtractor;F)V
+	public final fun toggle ()V
+}
+
