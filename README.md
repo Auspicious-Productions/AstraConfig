@@ -1,5 +1,10 @@
 # AstraConfig
 
+> [!NOTE]
+> **Made with AI.** Most of AstraConfig's code and documentation was written by Claude, Anthropic's
+> AI model, using Claude Code. EssenceXC directed the work and tested it in game. Review it like
+> any other third-party code before you rely on it.
+
 A config menu library for Fabric mods on Minecraft 26.1–26.3. You declare **modules** and their
 **settings** as annotated fields (OneConfig style) or Kotlin delegates. AstraConfig gives your mod:
 
@@ -12,7 +17,7 @@ A config menu library for Fabric mods on Minecraft 26.1–26.3. You declare **mo
 
 All of it works the same from Java and Kotlin.
 
-**Status:** all five phases of [`../PLAN.md`](../PLAN.md) are done. Published to `mavenLocal` only.
+**Status:** 0.1.0, for Minecraft 26.1, 26.2 and 26.3.
 
 ## Contents
 
@@ -33,14 +38,29 @@ All of it works the same from Java and Kotlin.
 
 ## Setup
 
+AstraConfig is published on [Modrinth](https://modrinth.com/mod/astraconfig), which doubles as a
+Maven repository:
+
 ```kotlin
 // build.gradle.kts of your mod
-repositories { mavenLocal() }
+repositories {
+    exclusiveContent {
+        forRepository { maven("https://api.modrinth.com/maven") { name = "Modrinth" } }
+        filter { includeGroup("maven.modrinth") }
+    }
+}
 dependencies {
-    // one artifact per Minecraft version: 0.1.0+26.1, 0.1.0+26.2, 0.1.0+26.3
-    include(implementation("xyz.essencexc:astraconfig:0.1.0+26.1")!!)
+    // one version per Minecraft version: 0.1.0+26.1, 0.1.0+26.2, 0.1.0+26.3
+    include(implementation("maven.modrinth:astraconfig:0.1.0+26.1")!!)
 }
 ```
+
+Bundling it with `include` means players don't have to install it separately. If you'd rather
+have them install it from Modrinth themselves, use `implementation(...)` alone and add
+`"astraconfig": "*"` to `depends` in your `fabric.mod.json`.
+
+To use a build of your own instead, run `./gradlew publishToMavenLocal` here, then use
+`mavenLocal()` and `xyz.essencexc:astraconfig:0.1.0+26.1`.
 
 AstraConfig bundles Cascade, Snowbird, Kommand, KBus and Orbit. It needs `fabric-api` and
 `fabric-language-kotlin` at runtime (Java mods too).
@@ -323,7 +343,7 @@ Java mods can get the same checks when they compile: the AstraConfig jar contain
 processor.
 
 ```kotlin
-dependencies { annotationProcessor("xyz.essencexc:astraconfig:0.1.0+26.1") }
+dependencies { annotationProcessor("maven.modrinth:astraconfig:0.1.0+26.1") }
 ```
 
 It reports wrong field types, `final` option fields, impossible slider ranges (including

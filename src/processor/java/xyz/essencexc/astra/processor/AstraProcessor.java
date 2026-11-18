@@ -28,7 +28,7 @@ import java.util.Set;
  * slider ranges, int dropdowns without options, @DependsOn on a missing or non-boolean option,
  * @Button methods with parameters, and more than one option annotation on a field.
  *
- * Enable it in your mod's build: {@code annotationProcessor("xyz.essencexc:astraconfig:<version>")}.
+ * Enable it in your mod's build: {@code annotationProcessor("maven.modrinth:astraconfig:<version>")}.
  * Kotlin sources aren't checked (Astra still validates them at startup).
  */
 @SupportedAnnotationTypes("xyz.essencexc.astra.api.annotations.*")

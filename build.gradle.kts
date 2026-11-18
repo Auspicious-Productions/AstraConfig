@@ -28,7 +28,7 @@ val testmod: SourceSet = sourceSets.create("testmod") {
     runtimeClasspath += sourceSets.main.get().runtimeClasspath + sourceSets.main.get().output
 }
 // Compile-time checks for Java mods (annotation processor). Plain Java, no dependencies; shipped
-// inside the AstraConfig jar so mods can use `annotationProcessor("xyz.essencexc:astraconfig:<version>")`.
+// inside the AstraConfig jar so mods can use `annotationProcessor("maven.modrinth:astraconfig:<version>")`.
 val processor: SourceSet = sourceSets.create("processor")
 
 

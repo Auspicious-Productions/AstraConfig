@@ -3,7 +3,7 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "A config menu library for Fabric mods. Declare modules and settings, AstraConfig provides the menu.",
+  "description": "A config menu library for Fabric mods. Declare modules and settings, AstraConfig provides the menu. Made with AI (written mostly by Claude using Claude Code).",
   "authors": [
     "EssenceXC"
   ],
