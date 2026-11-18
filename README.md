@@ -385,6 +385,16 @@ JDK 25 is required.
 | `./gradlew updateKotlinAbi` | Rewrites the public-API snapshots (`versions/<mc>/api/*.api`) after an intended API change. `build` runs `checkKotlinAbi`, which fails on unintended ones |
 | `./gradlew publishToMavenLocal` | Publishes `xyz.essencexc:astraconfig:0.1.0+<mc>` to `~/.m2` |
 
+### Making a release
+
+1. Set `version` in `gradle/mod.versions.toml` (e.g. `0.2.0`) and commit.
+2. Tag that commit with the same version and push the tag:
+   `git tag v0.2.0` then `git push origin v0.2.0`.
+
+GitHub Actions then builds and tests all three Minecraft versions and publishes a GitHub Release
+with the jars and generated release notes. Tags with a `-` (e.g. `v0.2.0-beta.1`) become
+pre-releases. If the tag doesn't match the version, the release stops before building.
+
 The build setup is based on the Template by Starred, used under the BSD 3-Clause License (see [`LICENSE-TEMPLATE`](LICENSE-TEMPLATE)).
 
 ## License
